@@ -235,7 +235,7 @@ void
 Transport
 ::_start_deadline(Source & source, boost::system::error_code & error)
 {
-    auto const canceled = this->_deadline.expires_from_now(this->_timeout);
+    auto const canceled = this->_deadline.expires_after(this->_timeout);
     if(canceled != 0)
     {
         throw Exception("TCP timer started with pending operations");
@@ -254,7 +254,7 @@ void
 Transport
 ::_stop_deadline()
 {
-    this->_deadline.expires_at(boost::posix_time::pos_infin);
+    this->_deadline.expires_at(boost::asio::steady_timer::time_point::max());
 }
 
 void

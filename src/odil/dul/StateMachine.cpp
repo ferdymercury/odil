@@ -265,7 +265,7 @@ StateMachine
     return;
 
 
-    auto const canceled = this->_artim_timer.expires_from_now(this->_timeout);
+    auto const canceled = this->_artim_timer.expires_after(this->_timeout);
     if(canceled != 0)
     {
         throw Exception("ARTIM timer started with pending operations");
@@ -300,7 +300,7 @@ StateMachine
     return;
 
 
-    this->_artim_timer.expires_at(boost::posix_time::pos_infin);
+    this->_artim_timer.expires_at(boost::asio::steady_timer::time_point::max());
     this->_transport.get_service().poll();
     // FIXME: check that the timer was aborted
     /*

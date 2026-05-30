@@ -46,8 +46,8 @@ Association
   _transfer_syntaxes_by_abstract_syntax(), _transfer_syntaxes_by_id(),
   _next_message_id(1)
 {
-    this->set_tcp_timeout(boost::posix_time::pos_infin);
-    this->set_message_timeout(boost::posix_time::seconds(30));
+    this->set_tcp_timeout(std::chrono::nanoseconds::max());
+    this->set_message_timeout(std::chrono::seconds(30));
 }
 
 Association

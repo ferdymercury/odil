@@ -64,7 +64,7 @@ public:
     };
 
     /// @brief Duration of the timeout.
-    typedef boost::asio::deadline_timer::duration_type duration_type;
+    typedef std::chrono::nanoseconds duration_type;
 
     /// @brief Constructor, initializing to Sta1.
     StateMachine();
@@ -156,7 +156,7 @@ private:
     duration_type _timeout;
 
     /// @brief Association Request/Reject/Release Timer.
-    boost::asio::deadline_timer _artim_timer;
+    boost::asio::steady_timer _artim_timer;
 
     /// @brief Callback checking whether an association request is acceptable.
     AssociationAcceptor _association_acceptor;

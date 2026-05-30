@@ -47,7 +47,7 @@ struct ODIL_API Transport
     typedef boost::asio::ip::tcp::socket Socket;
 
     /// @brief Duration of the timeout.
-    typedef boost::asio::deadline_timer::duration_type duration_type;
+    typedef std::chrono::steady_clock::duration duration_type;
 
     /// @brief Constructor.
     Transport();
@@ -98,7 +98,7 @@ private:
     boost::asio::io_service _service;
     std::shared_ptr<Socket> _socket;
     duration_type _timeout;
-    boost::asio::deadline_timer _deadline;
+    boost::asio::steady_timer _deadline;
 
     std::shared_ptr<boost::asio::ip::tcp::acceptor> _acceptor;
 

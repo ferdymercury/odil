@@ -104,7 +104,7 @@ MoveSCU
         while(!done)
         {
             // Use a small timeout to avoid blocking for a long time.
-            boost::posix_time::milliseconds const timeout(10);
+            std::chrono::milliseconds timeout(10);
             store_association.set_tcp_timeout(timeout);
             store_association.set_message_timeout(timeout);
 

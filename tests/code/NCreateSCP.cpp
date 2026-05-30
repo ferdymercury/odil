@@ -23,7 +23,7 @@ struct Status
 void run_server(Status * status)
 {
     odil::Association association;
-    association.set_tcp_timeout(boost::posix_time::seconds(1));
+    association.set_tcp_timeout(std::chrono::seconds(1));
 
     try
     {
