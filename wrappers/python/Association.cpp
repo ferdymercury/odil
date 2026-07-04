@@ -33,13 +33,13 @@ void receive_association(
 
 float get_tcp_timeout(odil::Association const& association)
 {
-    return association.get_tcp_timeout().total_microseconds()/1000000.f;
+    return std::chrono::duration_cast<std::chrono::microseconds>(association.get_tcp_timeout()).count() / 1000000.f;
+
 }
 
 void set_tcp_timeout(odil::Association& association, float seconds)
 {
-    association.set_tcp_timeout(
-        boost::posix_time::microseconds(int(seconds*1000000.f)));
+    association.set_tcp_timeout(std::chrono::microseconds(int(seconds*1000000.f)));
 }
 
 }
