@@ -1,5 +1,5 @@
 find_package(
-    Boost COMPONENTS exception filesystem log unit_test_framework REQUIRED)
+    Boost COMPONENTS exception filesystem log unit_test_framework REQUIRED CONFIG)
 find_package(DCMTK REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(JsonCpp REQUIRED)
