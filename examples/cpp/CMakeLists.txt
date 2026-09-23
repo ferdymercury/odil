@@ -1,4 +1,4 @@
-find_package(Boost REQUIRED)
+find_package(Boost REQUIRED CONFIG)
 find_package(DCMTK REQUIRED)
 find_package(JsonCpp REQUIRED)
 
