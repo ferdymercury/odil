@@ -2,7 +2,7 @@ include(CMakeFindDependencyMacro)
 
 set(ICU_ROOT @ICU_ROOT@)
 
-find_dependency(Boost REQUIRED COMPONENTS date_time exception filesystem log)
+find_dependency(Boost REQUIRED CONFIG COMPONENTS date_time exception filesystem log)
 find_dependency(ICU REQUIRED COMPONENTS uc)
 
 get_filename_component(ODIL_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
