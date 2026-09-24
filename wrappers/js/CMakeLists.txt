@@ -1,4 +1,4 @@
-find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED CONFIG COMPONENTS system)
 
 if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/icu/source/common")
     file(
